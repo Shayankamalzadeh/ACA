@@ -1,60 +1,47 @@
-# ACA
-Optimized matrix multiplication and inversion (compare serial and parallel programming with MPI)
+# Optimized Matrix Multiplication and Inversion
 
-Certainly! Writing a well-formatted README is important for effectively communicating information about your project to other developers and users. Here's a template and some guidelines to help you create a comprehensive README for your Git repository:
+This project focuses on optimized matrix multiplication and inversion, with an emphasis on rectangular matrices as a mandatory requirement for multiplication.
 
-# Project Title
+## Configuration
 
-Briefly describe your project in one or two sentences.
+### MinGW-w64 Setup
 
-## Table of Contents
+Before diving into the project, ensure that you have MinGW-w64 installed. Follow these steps to configure it:
 
-- [Introduction](#introduction)
-- [Features](#features)
-- [Getting Started](#getting-started)
-  - [Prerequisites](#prerequisites)
-  - [Installation](#installation)
-- [Usage](#usage)
-- [Contributing](#contributing)
-- [License](#license)
-- [Acknowledgments](#acknowledgments)
+1. **Download MinGW-w64:**
+   - Visit the [MinGW-w64 website](http://mingw-w64.org/doku.php) and download the installer suitable for your system.
 
-## Introduction
+2. **Install MinGW-w64:**
+   - Run the installer and follow the installation instructions.
+   - Make sure to add the MinGW-w64 bin directory to your system's PATH variable.
 
-Provide a more detailed introduction to your project. Explain its purpose, goals, and any relevant background information. Mention why your project is useful or interesting.
+### Microsoft MPI Setup
 
-## Features
+For parallel computing, Microsoft MPI is required. Here's how you can set it up:
 
-List the key features of your project. This can help users quickly understand what your project does.
+1. **Download Microsoft MPI:**
+   - Visit the [Microsoft MPI download page](https://www.microsoft.com/en-us/download/details.aspx?id=57467) and download the installer.
 
-## Getting Started
+2. **Install Microsoft MPI:**
+   - Run the installer and follow the installation instructions.
 
-Guide users on how to set up and run your project on their local machine.
+### Visual Studio Code (VS Code) Configuration
 
-### Prerequisites
+To work with the project in Visual Studio Code, follow these steps:
 
-List any software, libraries, or tools that users need to have installed before they can use your project.
+1. **Install VS Code:**
+   - Download and install [Visual Studio Code](https://code.visualstudio.com/).
 
-### Installation
+2. **Extensions:**
+   - Install the necessary extensions for C/C++ development.
 
-Provide step-by-step instructions on how to install your project. Include any necessary configuration steps.
+3. **Configure Microsoft MPI in VS Code:**
+   - Set the MPI executable path in your VS Code configuration.
 
-## Usage
+Now, you are ready to work with the project in VS Code with MinGW-w64 and Microsoft MPI properly configured.
 
-Explain how to use your project once it's installed. Provide examples or code snippets to help users understand the basic functionality.
+## Optimized Matrix Multiplication Algorithm
 
-## Contributing
+Briefly introduce the optimized algorithm you are implementing for matrix multiplication. Highlight the key optimizations that make your approach efficient, especially when dealing with rectangular matrices. Consider providing a high-level overview or pseudocode to help readers grasp the main concepts.
 
-Explain how others can contribute to your project. Include information about submitting issues, creating pull requests, and any coding standards or guidelines you want contributors to follow.
-
-## License
-
-Specify the license under which your project is distributed. This is important for clarifying how others can use, modify, and distribute your code.
-
-## Acknowledgments
-
-Give credit to any external libraries, resources, or individuals who have inspired or contributed to your project.
-
-Feel free to customize this template based on your project's specific needs. Additionally, consider adding badges (e.g., for build status, code coverage, etc.) to the top of your README to provide quick visual information about the status of your project.
-
-Remember to keep your README concise, clear, and informative. Users and contributors should be able to understand your project and get started quickly.
+Remember to update and customize these instructions based on the specific details and nuances of your project. Additionally, include any relevant commands or code snippets that users may need during the configuration process.
