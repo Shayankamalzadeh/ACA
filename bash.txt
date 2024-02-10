@@ -1,0 +1,39 @@
+#!/bin/bash
+
+# Compile the MPI programs
+mpicxx -o gauss_jordan_inversion gauss_jordan_inversion.cpp
+mpicxx -o matrix_multiplication matrix_multiplication.cpp
+
+# Define the matrix sizes and CPU counts
+matrix_sizes=(100 200 300 400 500)
+cpu_counts=(2 4 8 16)
+
+# File names for the CSV files
+file_gauss="gauss_jordan_execution_times.csv"
+file_matrix="matrix_multiplication_execution_times.csv"
+
+# Write headers to the CSV files
+echo "MatrixSize,CPUs,Time" > $file_gauss
+echo "MatrixSize,CPUs,Time" > $file_matrix
+
+# Run Gauss-Jordan Inversion program
+for size in ${matrix_sizes[@]}; do
+    for cpus in ${cpu_counts[@]}; do
+        if (( $size % $cpus == 0 )); then
+            # Run the program and extract the execution time
+            time=$(mpirun -np $cpus ./mpi_inversion $size | grep "Time taken" | awk '{print $3}')
+            # Save to CSV
+            echo "$size,$cpus,$time" >> $file_gauss
+        fi
+    done
+done
+
+# Run Matrix Multiplication program
+for size in ${matrix_sizes[@]}; do
+    for cpus in ${cpu_counts[@]}; do
+        # Run the program and extract the execution time
+        time=$(mpirun -np $cpus ./mpi_multi $size | grep "Time taken" | awk '{print $3}')
+        # Save to CSV
+        echo "$size,$cpus,$time" >> $file_matrix
+    done
+done
