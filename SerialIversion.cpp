@@ -82,7 +82,7 @@ int main(int argc, char* argv[]) {
         }
         std::cout << std::endl;
     }
-    std::cout << "Time taken for matrix inversion: " << time_taken << " seconds." << std::endl;
+    std::cout << "Time taken: " << (time_taken) << " seconds.\n";
 
     return 0;
 }

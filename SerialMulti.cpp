@@ -17,11 +17,12 @@ std::vector<std::vector<int>> multiplyMatrices(const std::vector<std::vector<int
     return result;
 }
 
-int main() {
-    int n;
-    std::cout << "Enter the size for n x n matrices: ";
-    std::cin >> n;
-
+int main(int argc, char* argv[]) {
+    if (argc != 2) {
+        std::cerr << "Usage: " << argv[0] << " <matrix_size>\n";
+        return 1;
+    }
+     int n = std::atoi(argv[1]);
     // Create two n x n matrices with rectangular patterns
     std::vector<std::vector<int>> matrix1(n, std::vector<int>(n, 1));
     std::vector<std::vector<int>> matrix2(n, std::vector<int>(n, 1));
@@ -33,7 +34,7 @@ int main() {
 
     double time_taken = double(end - start) / CLOCKS_PER_SEC;
 
-    std::cout << "Time taken to multiply two " << n << " x " << n << " matrices: " << time_taken << " seconds.\n";
+   std::cout << "Time taken: " << (time_taken) << " seconds.\n";
 
     return 0;
 }

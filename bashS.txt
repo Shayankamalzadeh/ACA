@@ -1,0 +1,27 @@
+#!/bin/bash
+# Define the matrix sizes
+matrix_sizes=(2 64 128 256 1024)
+
+# File names for the CSV files
+file_gauss="gauss_jordan_execution_times.csv"
+file_matrix="matrix_multiplication_execution_times.csv"
+
+# Write headers to the CSV files
+echo "MatrixSize,Time" > $file_gauss
+echo "MatrixSize,Time" > $file_matrix
+
+# Run Gauss-Jordan Inversion program serially
+for size in ${matrix_sizes[@]}; do
+    # Run the program and extract the execution time
+    time=$(./gauss_jordan_inversion $size | grep "Time taken" | awk '{print $3}')
+    # Save to CSV
+    echo "$size,$time" >> $file_gauss
+done
+
+# Run Matrix Multiplication program serially
+for size in ${matrix_sizes[@]}; do
+    # Run the program and extract the execution time
+    time=$(./matrix_multiplication $size | grep "Time taken" | awk '{print $3}')
+    # Save to CSV
+    echo "$size,$time" >> $file_matrix
+done
