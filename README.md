@@ -42,6 +42,34 @@ Now, you are ready to work with the project in VS Code with MinGW-w64 and Micros
 
 ## Optimized Matrix Multiplication Algorithm
 
+# Matrix Multiplication with MPI
+
+This project demonstrates how to perform matrix multiplication in parallel using **MPI (Message Passing Interface)**. The code splits the multiplication task across multiple processors to speed up the operation, especially for large matrices.
+
+## How the Code Works
+
+1. **MPI Initialization**: The program starts by initializing the MPI environment, which sets up communication between processors.
+2. **Matrix Setup**: Each processor creates two matrices and is assigned a block of rows to work on.
+3. **Parallel Matrix Multiplication**: The matrix multiplication task is divided, and each processor works on its assigned rows.
+4. **Gathering Results**: After each processor finishes, the results are gathered by the root processor to form the final matrix.
+5. **Timing**: The time taken for the entire multiplication process is measured and displayed by the root processor.
+
+## Why MPI is Used
+
+MPI allows the matrix multiplication to be divided into parts and run in parallel. This significantly speeds up the process by using multiple processors to share the workload. Without MPI, the task would be done sequentially, taking much longer.
+
+### Key MPI Functions Used:
+- `MPI_Init`: Initializes the MPI environment.
+- `MPI_Comm_rank`: Gets the unique ID (rank) of each processor.
+- `MPI_Comm_size`: Determines the total number of processors.
+- `MPI_Bcast`: Broadcasts data (like matrix size) to all processors.
+- `MPI_Gather`: Gathers the computed results from all processors to the root processor.
+- `MPI_Wtime`: Measures the time taken for execution.
+- `MPI_Finalize`: Shuts down the MPI environment.
+
+
+
+
 Briefly introduce the optimized algorithm you are implementing for matrix multiplication. Highlight the key optimizations that make your approach efficient, especially when dealing with rectangular matrices. Consider providing a high-level overview or pseudocode to help readers grasp the main concepts.
 
 Remember to update and customize these instructions based on the specific details and nuances of your project. Additionally, include any relevant commands or code snippets that users may need during the configuration process.
